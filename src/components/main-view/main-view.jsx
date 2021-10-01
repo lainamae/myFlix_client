@@ -1,23 +1,32 @@
 import React from 'react';
+import axios from 'axios';
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import img300 from '../../img/300.jpg';
-import imgShawshank from '../../img/shawshankredemption.jpg';
-import imgInception from '../../img/inception.jpg';
-
 
 export default class MainView extends React.Component {
   constructor(){
     super();
     this.state = {
-      movies: [
-        { _id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: imgInception },
-        { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: imgShawshank},
-        { _id: 3, Title: '300', Description: 'desc3...', ImagePath: img300}
-      ],
+      movies: [],
       selectedMovie: null
     };
   }
+
+  componentDidMount(){
+    axios.get('https://myflix-0501.herokuapp.com/movies')
+    .then(response => {
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+
+
 
   setSelectedMovie(newSelectedMovie) {
     this.setState({
@@ -29,7 +38,7 @@ export default class MainView extends React.Component {
     const { movies, selectedMovie } = this.state;
 
 
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+    if (movies.length === 0) return <div className="main-view"/>;
 
     return (
       <div className="main-view">
