@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export function LoginView(props) {
   const [ username, SetUsername ] = useState('');
@@ -24,4 +25,14 @@ export function LoginView(props) {
       <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
+}
+
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthdate: PropTypes.string.isRequired,
+    FavoriteMovies: PropTypes.array,
+  })
 }
