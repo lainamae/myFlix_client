@@ -24388,8 +24388,21 @@ class MovieCard extends _reactDefault.default.Component {
 }
 MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
-        Title: _propTypesDefault.default.string
+        Title: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired,
+        Director: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Bio: _propTypesDefault.default.string.isRequired,
+            Birth: _propTypesDefault.default.string.isRequired,
+            Death: _propTypesDefault.default.string
+        }),
+        Genre: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired,
+            Description: _propTypesDefault.default.string.isRequired
+        }),
+        ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
+    Featured: _propTypesDefault.default.bool,
     onMovieClick: _propTypesDefault.default.func.isRequired
 };
 
@@ -25362,6 +25375,8 @@ parcelHelpers.export(exports, "LoginView", ()=>LoginView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
@@ -25375,14 +25390,14 @@ function LoginView(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 15
+            lineNumber: 16
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 16
+                    lineNumber: 17
                 },
                 __self: this,
                 children: [
@@ -25394,7 +25409,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 18
+                            lineNumber: 19
                         },
                         __self: this
                     })
@@ -25403,7 +25418,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 20
+                    lineNumber: 21
                 },
                 __self: this,
                 children: [
@@ -25415,7 +25430,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 22
+                            lineNumber: 23
                         },
                         __self: this
                     })
@@ -25426,7 +25441,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 24
+                    lineNumber: 25
                 },
                 __self: this,
                 children: "Submit"
@@ -25436,6 +25451,15 @@ function LoginView(props) {
 }
 _s(LoginView, "/X4F3SOY9v79QwsbL97giKS+DKI=");
 _c = LoginView;
+LoginView.propTypes = {
+    user: _propTypesDefault.default.shape({
+        Username: _propTypesDefault.default.string.isRequired,
+        Password: _propTypesDefault.default.string.isRequired,
+        Email: _propTypesDefault.default.string.isRequired,
+        Birthday: _propTypesDefault.default.string.isRequired,
+        FavoriteMovies: _propTypesDefault.default.array
+    })
+};
 var _c;
 $RefreshReg$(_c, "LoginView");
 
@@ -25444,6 +25468,6 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"6mOmX","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"c5vhS"}],"jUTZ8":[function() {},{}]},["fJ2oW","h1wE9","dLPEP"], "dLPEP", "parcelRequire2fd1")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"6mOmX","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"c5vhS","prop-types":"1tgq3"}],"jUTZ8":[function() {},{}]},["fJ2oW","h1wE9","dLPEP"], "dLPEP", "parcelRequire2fd1")
 
 //# sourceMappingURL=index.6701a6e1.js.map
