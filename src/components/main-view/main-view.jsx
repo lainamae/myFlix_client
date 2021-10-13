@@ -6,69 +6,79 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegisterView } from '../register-view/register-view';
 
-export class MainView extends React.Component {
+export default class MainView extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			movies: [],
+			selectedMovie: null,
+			user: null,
+			register: null,
+		};
+	}
 
-  constructor() {
-    super();
-    this.state = {
-      movies: [],
-      selectedMovie: null,
-      user: null,
-      register: null
-    };
-  }
+	componentDidMount() {
+		console.log('component mounted');
+		axios
+			.get('https://myflix-0501.herokuapp.com/movies')
+			.then((response) => {
+				this.setState({
+					movies: response.data,
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
 
+	setSelectedMovie(movie) {
+		this.setState({
+			selectedMovie: movie,
+		});
+	}
 
-  componentDidMount() {
-    axios.get('https://mygli.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
+	onRegister(register) {
+		this.setState({
+			register,
+		});
+	}
 
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie
-    });
-  }
+	onLoggedIn(user) {
+		this.setState({
+			user,
+		});
+	}
 
-  onRegister(register) {
-    this.setState({
-      register
-    });
-  }
+	render() {
+		const { movies, selectedMovie, user, register } = this.state;
 
-  onLoggedIn(user) {
-    this.setState({
-      user
-    });
-  }
+		// if (!register) return <RegisterView onRegister={(register) => this.onRegister(register)} />;
 
-  render() {
+		// if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
-    const { movies, selectedMovie, user, register } = this.state;
+		if (movies.length === 0) return <div className="main-view"></div>;
 
-    if (!register) return <RegisterView onRegister={register => this.onRegister(register)} />
-
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-
-
-    if (movies.length === 0) return <div className="main-view"></div>;
-
-    return (
-      <div className="main-view">
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie); }} />
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
-          ))
-        }
-      </div>
-    );
-  }
+		return (
+			<div className="main-view">
+				{selectedMovie ? (
+					<MovieView
+						movie={selectedMovie}
+						onBackClick={(newSelectedMovie) => {
+							this.setSelectedMovie(newSelectedMovie);
+						}}
+					/>
+				) : (
+					movies.map((movie) => (
+						<MovieCard
+							key={movie._id}
+							movie={movie}
+							onMovieClick={(movie) => {
+								this.setSelectedMovie(movie);
+							}}
+						/>
+					))
+				)}
+			</div>
+		);
+	}
 }
