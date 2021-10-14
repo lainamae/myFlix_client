@@ -40,5 +40,3 @@ MovieCard.propTypes = {
 	Featured: PropTypes.bool,
 	onMovieClick: PropTypes.func.isRequired
 };
-
-
