@@ -1,45 +1,84 @@
+import axios from 'axios';
 import React from 'react';
+
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import img300 from '../../img/300.jpg';
-import imgShawshank from '../../img/shawshankredemption.jpg';
-import imgInception from '../../img/inception.jpg';
-
+import { RegisterView } from '../register-view/register-view';
 
 export default class MainView extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      movies: [
-        { _id: 1, Title: 'Inception', Description: 'desc1...', ImagePath: imgInception },
-        { _id: 2, Title: 'The Shawshank Redemption', Description: 'desc2...', ImagePath: imgShawshank},
-        { _id: 3, Title: '300', Description: 'desc3...', ImagePath: img300}
-      ],
-      selectedMovie: null
-    };
-  }
+	constructor() {
+		super();
+		this.state = {
+			movies: [],
+			selectedMovie: null,
+			user: null,
+			register: null,
+		};
+	}
 
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({
-      selectedMovie: newSelectedMovie
-    });
-  }
+	componentDidMount() {
+		console.log('component mounted');
+		axios
+			.get('https://myflix-0501.herokuapp.com/movies')
+			.then((response) => {
+				this.setState({
+					movies: response.data,
+				});
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}
 
-  render() {
-    const { movies, selectedMovie } = this.state;
+	setSelectedMovie(movie) {
+		this.setState({
+			selectedMovie: movie,
+		});
+	}
 
+	onRegister(register) {
+		this.setState({
+			register,
+		});
+	}
 
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+	onLoggedIn(user) {
+		this.setState({
+			user,
+		});
+	}
 
-    return (
-      <div className="main-view">
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }}/>
-          ))
-        }
-      </div>
-    );
-  }
+	render() {
+		const { movies, selectedMovie, user, register } = this.state;
+
+		// if (!register) return <RegisterView onRegister={(register) => this.onRegister(register)} />;
+
+		// if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+
+		if (movies.length === 0) return <div className="main-view"></div>;
+
+		return (
+			<div className="main-view">
+				{selectedMovie ? (
+					<MovieView
+						movie={selectedMovie}
+						onBackClick={(newSelectedMovie) => {
+							this.setSelectedMovie(newSelectedMovie);
+						}}
+					/>
+				) : (
+					movies.map((movie) => (
+						<MovieCard
+							key={movie._id}
+							movie={movie}
+							onMovieClick={(movie) => {
+								this.setSelectedMovie(movie);
+							}}
+						/>
+					))
+				)}
+			</div>
+		);
+	}
 }
