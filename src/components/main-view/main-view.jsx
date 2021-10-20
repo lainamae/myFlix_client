@@ -56,17 +56,7 @@ export default class MainView extends React.Component {
 			});
 	}
 
-	setSelectedMovie(movie) {
-		this.setState({
-			selectedMovie: movie
-		});
-	}
 
-	onRegister(register) {
-		this.setState({
-			register
-		});
-	}
 
 	onLoggedIn(user) {
 		this.setState({
