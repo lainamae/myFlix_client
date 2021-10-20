@@ -7,8 +7,8 @@ import Col from 'react-bootstrap/Col';
 
 
 export function LoginView(props) {
-	const [username, SetUsername] = useState('');
-	const [password, SetPassword] = useState('');
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
