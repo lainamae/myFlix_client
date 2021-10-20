@@ -26,7 +26,6 @@ export default class MainView extends React.Component {
 	}
 
 	componentDidMount() {
-		axios.get('https://myflix-0501.herokuapp.com/movies')
 		let accessToken = localStorage.getItem('token');
 		if (accessToken !== null) {
 			this.setState({
@@ -49,11 +48,19 @@ export default class MainView extends React.Component {
 	}
 
 			.then(response => {
+	// Get all movies in DB
+	getMovies(token) {
+		axios.get('https://myflix-0501.herokuapp.com/movies', {
+			headers: { Authorization: `Bearer ${token}` }
+		})
+			.then(response => {
+				console.log(response)
+				// Assign the result to the state
 				this.setState({
 					movies: response.data
 				});
 			})
-			.catch(error => {
+			.catch(function (error) {
 				console.log(error);
 			});
 	}
