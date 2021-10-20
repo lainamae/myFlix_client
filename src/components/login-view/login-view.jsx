@@ -43,7 +43,8 @@ export function LoginView(props) {
 }
 
 LoginView.propTypes = {
-	user: PropTypes.shape({
+	user: PropTypes.exact({
+		Name: PropTypes.string.isRequired,
 		Username: PropTypes.string.isRequired,
 		Password: PropTypes.string.isRequired,
 		Email: PropTypes.string.isRequired,
