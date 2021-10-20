@@ -25,6 +25,27 @@ export default class MainView extends React.Component {
 
 	componentDidMount() {
 		axios.get('https://myflix-0501.herokuapp.com/movies')
+		let accessToken = localStorage.getItem('token');
+		if (accessToken !== null) {
+			this.setState({
+				user: localStorage.getItem('user')
+			});
+			this.getMovies(accessToken);
+		}
+	}
+
+	// Login 
+	onLoggedIn(authData) {
+		console.log(authData);
+		this.setState({
+			user: authData.user.Username
+		});
+
+		localStorage.setItem('token', authData.token);
+		localStorage.setItem('user', authData.user.Username);
+		this.getMovies(authData.token);
+	}
+
 			.then(response => {
 				this.setState({
 					movies: response.data
