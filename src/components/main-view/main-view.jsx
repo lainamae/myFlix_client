@@ -10,6 +10,9 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 
+
+
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -21,7 +24,6 @@ export default class MainView extends React.Component {
 			user: null,
 		};
 	}
-
 
 	componentDidMount() {
 		axios.get('https://myflix-0501.herokuapp.com/movies')
@@ -58,19 +60,14 @@ export default class MainView extends React.Component {
 
 
 
-	onLoggedIn(user) {
 		this.setState({
-			user
 		});
 	}
-
 	render() {
 
 		const { movies, selectedMovie, user, register } = this.state;
 
-		// if (!register) return <RegisterView onRegister={register => this.onRegister(register)} />
 
-		// if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
 
 
 		if (movies.length === 0) return <div className="main-view"></div>;
