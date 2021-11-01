@@ -9,14 +9,19 @@ export class GenreView extends React.Component {
 
     return (
       <div className="genre-view">
-        <div className="genre-name">
-          <span className="value">{genre.Name}</span>
-        </div>
-        <div className="genre-description">
-          <span className="value">{genre.Description}</span>
-        </div>
+        <Card className="text-white genre-card">
+          <Card.Img src={genre.ImagePath} width="100%" maxheight="500px" crossOrigin="anonymous" />
+          <div className="card-img-overlay d-flex flex-column justify-content-between">
+            <span className="genreInfo">
+              <h2 className="value">{genre.Name}</h2>
+              <span className="value">{genre.Description}</span>
+            </span>
+            <Button variant="outline-light" className="back-btn" onClick={() => { onBackClick(null); }}>Back</Button>
 
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+          </div>
+
+
+        </Card>
       </div>
     );
   }
