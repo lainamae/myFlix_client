@@ -9,9 +9,12 @@ import { RegisterView } from '../register-view/register-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
+import { Navbar } from '../navbar/navbar';
 
 
 
+
+import './main-view.scss';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
