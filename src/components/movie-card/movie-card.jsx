@@ -13,13 +13,15 @@ export class MovieCard extends React.Component {
 		const { movie, onMovieClick } = this.props;
 		console.log(movie);
 		return (
-			<Card>
-				<Card.Body>
+			<Card className="bg-dark text-white align-self-stretch">
+				<Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" />
+				<Card.Body className="d-flex flex-column">
 					<Card.Title>{movie.Title}</Card.Title>
-					<Card.Text>{movie.Description}</Card.Text>
-					<Link to={`/movies/${movie._id}`}>
-						<Button variant="link">Open</Button>
-					</Link>
+					<div className="mt-auto d-grid gap-2">
+						<Link to={`/movies/${movie._id}`}>
+							<Button variant="outline-primary" className="movie-btn">Open</Button>
+						</Link>
+					</div>
 				</Card.Body>
 			</Card>
 		);
