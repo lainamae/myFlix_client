@@ -1,4 +1,6 @@
 import React from 'react';
+import './genre-view.scss';
+import { Button, Card } from 'react-bootstrap';
 
 export class GenreView extends React.Component {
 
