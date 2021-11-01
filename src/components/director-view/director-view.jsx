@@ -11,17 +11,19 @@ export class DirectorView extends React.Component {
 
     return (
       <div className="director-view">
-        <div className="director-name">
-          <span className="value">{director.Name}</span>
-        </div>
-        <div className="director-biography">
-          <span className="value">{director.Bio}</span>
-        </div>
-        <div className="director-lifespan">
-          <span className="value">{director.Birth} - {director.Death}</span>
-        </div>
+        <Card className="text-white director-card">
+          <Card.Img src={director.ImagePath} crossOrigin="anonymous" maxheight="500px" />
+          <div className="card-img-overlay director-info d-flex flex-column justify-content-between">
+            <span className="directorInfo">
+              <h2 className="value">{director.Name}</h2>
+              <span className="value">{director.Bio}</span>
+              <span className="value">{director.Birth} - {director.Death}</span>
+            </span>
+            <Button variant="outline-light" className="back-btn" onClick={() => { onBackClick(null); }}>Back</Button>
 
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+          </div>
+
+        </Card>
       </div>
     );
   }
