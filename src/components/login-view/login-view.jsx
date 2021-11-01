@@ -7,6 +7,9 @@ import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import './login-view.scss';
+
+
 
 export function LoginView(props) {
 	const [username, setUsername] = useState('');
