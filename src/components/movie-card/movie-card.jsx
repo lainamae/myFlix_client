@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-import MovieImg from '../../img/placeholder.png';
 
 import { Link } from "react-router-dom";
 
@@ -13,7 +12,6 @@ export class MovieCard extends React.Component {
 		console.log(movie);
 		return (
 			<Card>
-				<Card.Img variant="top" src={MovieImg} width="270px" />
 				<Card.Body>
 					<Card.Title>{movie.Title}</Card.Title>
 					<Card.Text>{movie.Description}</Card.Text>
