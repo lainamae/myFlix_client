@@ -4,6 +4,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
+import './register-view.scss';
+
+
 export function RegisterView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -31,7 +34,7 @@ export function RegisterView(props) {
   };
 
   return (
-    <form>
+    <Form>
       <label className="username">
         Username:
         <input
@@ -67,7 +70,7 @@ export function RegisterView(props) {
       <button className="registerBtn" type="submit" onClick={handleSubmit}>
         Register
       </button>
-    </form>
+    </Form>
   );
 }
 
