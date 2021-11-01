@@ -1,4 +1,8 @@
 import React from 'react';
+import './director-view.scss';
+
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 export class DirectorView extends React.Component {
 
