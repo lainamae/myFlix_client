@@ -17,6 +17,14 @@ export class ProfileView extends React.Component {
       favoriteMovies: []
     };
   }
+
+  componentDidMount() {
+    let accessToken = localStorage.getItem("token");
+    if (accessToken !== null) {
+      this.getUser(accessToken);
+    }
+  }
+
   getUser(token) {
     const username = localStorage.getItem('user');
     axios.get(`https://myflix-0501.herokuapp.com/users/${username}`, {
