@@ -1,5 +1,7 @@
-$color: steelblue;
+.container-fluid {
+  padding: 0 !important;
+}
 
-.my-flix {
-  color: $color;
+body {
+  background-color: #171617 !important;
 }

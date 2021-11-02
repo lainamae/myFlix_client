@@ -1,21 +1,40 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+
+import './register-view.scss';
+
 
 export function RegisterView(props) {
-  const [username, SetUsername] = useState('');
-  const [password, SetPassword] = useState('');
-  const [email, SetEmail] = useState('');
-  const [birthdate, SetBirthdate] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthdate, setBirthdate] = useState('');
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthdate);
-    props.onRegister(username);
+    axios.post('https://myflix-0501.herokuapp.com/users', {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthdate: birthdate
+    })
+      .then(response => {
+        const data = response.data;
+        console.log(data);
+        window.open('/', '_self');
+      })
+      .catch(e => {
+        console.log('error registering the user')
+      })
   };
 
-
   return (
-    <form>
+    <Form>
       <label className="username">
         Username:
         <input
@@ -51,17 +70,18 @@ export function RegisterView(props) {
       <button className="registerBtn" type="submit" onClick={handleSubmit}>
         Register
       </button>
-    </form>
+    </Form>
   );
-
 }
 
-RegisterView.PropTypes = {
-  register: PropTypes.shape = ({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    birthdate: PropTypes.string.isRequired,
+RegisterView.propTypes = {
+  user: PropTypes.exact({
+    Name: PropTypes.string.isRequired,
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthdate: PropTypes.string.isRequired,
+    FavoriteMovies: PropTypes.array,
   }),
-  onRegister: PropTypes.func.isRequired,
+  onRegister: PropTypes.func,
 };
