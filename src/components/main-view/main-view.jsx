@@ -46,7 +46,6 @@ export default class MainView extends React.Component {
 		this.getMovies(authData.token);
 	}
 
-			.then(response => {
 	// Get all movies in DB
 	getMovies(token) {
 		axios.get('https://myflix-0501.herokuapp.com/movies', {
@@ -63,13 +62,6 @@ export default class MainView extends React.Component {
 				console.log(error);
 			});
 	}
-
-
-
-		this.setState({
-		});
-	}
-
 
 	render() {
 		const { movies, user } = this.state;
