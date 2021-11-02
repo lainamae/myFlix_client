@@ -7,8 +7,16 @@ import Accordion from 'react-bootstrap/Accordion'
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    this.state = {
+      username: null,
+      password: null,
+      email: null,
+      birthday: null,
+      favoriteMovies: []
+    };
+  }
   }
   onLoggedOut = () => {
     localStorage.clear();
