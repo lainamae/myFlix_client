@@ -100,6 +100,26 @@ export class ProfileView extends React.Component {
   }
   render() {
     const { user } = this.props;
+  deleteAccount() {
+    const answer = window.confirm("Are you sure you want to delete your account?");
+    if (answer) {
+      const token = localStorage.getItem("token");
+      const { username } = this.state;
+
+      axios.delete(`https://myflix-0501.herokuapp.com/users/${username}`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+        .then(() => {
+          alert(username + " has been deleted.");
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
+          window.location.pathname = "/";
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    };
+  }
 
     return (
       <Row>
