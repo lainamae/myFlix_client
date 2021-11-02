@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
-import { Button, Card, Col, Form, Row, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
+
+import { Button, Card, Row, Col, CardDeck, Form, Image } from 'react-bootstrap';
+import Accordion from 'react-bootstrap/Accordion'
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
