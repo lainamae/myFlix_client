@@ -98,8 +98,6 @@ export class ProfileView extends React.Component {
     localStorage.clear();
     window.open("/", "_self");
   }
-  render() {
-    const { user } = this.props;
   deleteAccount() {
     const answer = window.confirm("Are you sure you want to delete your account?");
     if (answer) {
@@ -136,6 +134,9 @@ export class ProfileView extends React.Component {
       })
   }
 
+  render() {
+    const { username, email, birthday, favoriteMovies } = this.state;
+    const { movies } = this.props;
     return (
       <Row>
         <Col>
