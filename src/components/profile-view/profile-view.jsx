@@ -120,6 +120,21 @@ export class ProfileView extends React.Component {
         })
     };
   }
+  removeFavorite(_id) {
+    const { username } = this.state;
+    const token = localStorage.getItem('token');
+    console.log(_id, '_id')
+    axios.delete(`https://myflix-0501.herokuapp.com/users/${username}/movies/${_id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => {
+        alert('Favorite was removed')
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  }
 
     return (
       <Row>
