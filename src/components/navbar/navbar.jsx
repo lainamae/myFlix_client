@@ -45,7 +45,6 @@ export function Navbar(props) {
               !isAuth() && (
                 <span>
                   <Nav.Link href="/register">Sign up</Nav.Link>
-                  <Nav.Link href="/">Log in</Nav.Link>
                 </span>
               )
             }
