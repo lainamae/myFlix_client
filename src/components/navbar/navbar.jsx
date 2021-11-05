@@ -20,7 +20,7 @@ export function Navbar(props) {
 
   return (
 
-    <Navbar className="main-nav" fixed="top" bg="dark" expand="lg" variant="dark">
+    <Navbar className="main-nav" fixed="top" expand="lg" variant="dark">
       <Nav className="d-flex flex-row justify-content-between">
 
         <Navbar.Brand href="/"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-camera-reels-fill" viewBox="0 0 16 16">
