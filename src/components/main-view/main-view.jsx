@@ -18,6 +18,7 @@ import { ProfileView } from '../profile-view/profile-view';
 import { Navbar } from '../navbar/navbar';
 import MoviesList from '../movies-list/movies-list';
 
+const API_ADDRESS = "https://myflix-0501.herokuapp.com";
 
 // Styles
 import './main-view.scss';
@@ -55,7 +56,7 @@ class MainView extends React.Component {
 	}
 	// Get all movies in DB
 	getMovies(token) {
-		axios.get('https://myflix-0501.herokuapp.com/movies', {
+		axios.get(`${API_ADDRESS}/movies`, {
 			headers: { Authorization: `Bearer ${token}` }
 		})
 			.then(response => {
