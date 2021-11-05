@@ -1,5 +1,8 @@
 import axios from 'axios';
 import React from 'react';
+
+import { connect } from 'react-redux';
+
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { LoginView } from '../login-view/login-view';
@@ -136,3 +139,9 @@ export default class MainView extends React.Component {
 		);
 	}
 }
+
+let mapStateToProps = state => {
+	return { movies: state.movies }
+}
+
+export default connect(mapStateToProps, { setMovies })(MainView);
