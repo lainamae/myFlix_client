@@ -1,10 +1,40 @@
 .movie-card {
-  padding: 15px 0;
-  
-}
-.movie-btn {
-  width: 100%;
+  background-color: rgba(0, 0, 0, .5) !important;
+  color: azure;
+  margin: 1rem 0;
+  padding: .5rem;
 }
 .card-title {
   text-align: center;
+}
+
+.movie-card-btns {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: .75rem;
+  justify-content: space-between;
+}
+
+.movie-overlay {
+  background-color:rgba(0, 0, 0, 0);
+  color:rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  button {
+    color:rgba(255, 0, 68, 0);
+    background-color: rgba(0, 0, 0, 0);
+    shadow: none;
+    margin: none;
+    border: none;
+  }
+}
+.movie-overlay:hover {
+  background-color:rgba(0, 0, 0, .8);
+  color:rgba(255, 255, 255, 1);
+  transition: 3ms;
+  button {
+  color:rgba(255, 0, 68, 1);
+
+}
 }

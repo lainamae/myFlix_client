@@ -1,6 +1,11 @@
 .movieview-card {
+  background-color: rgba(0, 0, 0, .75) !important;
+  height: 80vh;
+  margin-top: 1rem;
+
+
   img {
-    opacity: 20%;
+    opacity: 30%;
   }
   .btn {
     margin: .5rem;
