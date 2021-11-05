@@ -2,7 +2,6 @@ import axios from 'axios';
 import React from 'react';
 
 import { connect } from 'react-redux';
-
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { setMovies } from '../../actions/actions'
@@ -11,7 +10,6 @@ import { setUser } from '../../actions/actions'
 
 // Components
 import { LoginView } from '../login-view/login-view';
-// import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegisterView } from '../register-view/register-view';
 import { DirectorView } from '../director-view/director-view';
@@ -44,7 +42,6 @@ class MainView extends React.Component {
 			this.getMovies(accessToken);
 		}
 	}
-
 	// Login 
 	onLoggedIn(authData) {
 		console.log(authData);
@@ -56,7 +53,6 @@ class MainView extends React.Component {
 		localStorage.setItem('user', authData.user.Username);
 		this.getMovies(authData.token);
 	}
-
 	// Get all movies in DB
 	getMovies(token) {
 		axios.get('https://myflix-0501.herokuapp.com/movies', {
