@@ -75,6 +75,8 @@ class MainView extends React.Component {
 	render() {
 
 		let { movies } = this.props;
+		const { user } = this.state;
+
 		return (
 			<Container fluid>
 				<Navbar />
