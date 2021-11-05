@@ -66,9 +66,7 @@ class MainView extends React.Component {
 			.then(response => {
 				console.log(response)
 				// Assign the result to the state
-				this.setState({
-					movies: response.data
-				});
+				this.props.setMovies(response.data);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -76,7 +74,8 @@ class MainView extends React.Component {
 	}
 
 	render() {
-		const { movies, user } = this.state;
+
+		let { movies } = this.props;
 		return (
 			<Container fluid>
 				<Navbar />
