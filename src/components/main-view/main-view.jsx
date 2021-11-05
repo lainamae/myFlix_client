@@ -27,7 +27,7 @@ import './main-view.scss';
 // Bootstrap components
 import { Container, Row, Col } from 'react-bootstrap';
 
-export default class MainView extends React.Component {
+class MainView extends React.Component {
 	constructor() {
 		super();
 		this.state = {
