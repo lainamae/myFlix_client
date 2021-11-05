@@ -31,7 +31,6 @@ class MainView extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			movies: [],
 			user: null,
 		};
 	}
