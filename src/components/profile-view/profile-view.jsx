@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { Button, Card, Row, Col, CardDeck, Form, Image } from 'react-bootstrap';
 import Accordion from 'react-bootstrap/Accordion'
+import { MovieCard } from '../movie-card/movie-card';
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
@@ -185,13 +186,10 @@ export class ProfileView extends React.Component {
         <div className="d-flex flew-column">
           {
             FavoriteMovies.map((movie) => (
-              <Card key={movie._id}>
-                <Card.Img variant="top" src={movie.ImagePath} crossOrigin="anonymous" />
-                <Card.Body>
-                  <Card.Title>{movie.Title}</Card.Title>
-                  <Card.Text><Button variant="outline-danger" size="sm" onClick={() => { this.removeFavorite(movie._id) }}>Remove favorite</Button></Card.Text>
-                </Card.Body>
-              </Card>
+              <Col key={movie._id}><MovieCard movie={movie} />
+                <Button variant="dark" onClick={() => { this.removeFavorite(movie._id) }}>remove fav</Button>
+
+              </Col>
             ))
           }
         </div>
