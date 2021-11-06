@@ -1,22 +1,20 @@
 
-.movie-card {
-  padding: 15px 0;
-}
-
-.movie-btn {
-  width: 100%;
-}
-
-.card-title {
-  text-align: center;
+.movieview-card {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  height: 80vh;
+  margin-top: 1rem;
 }
 .movieview-card img {
-  opacity: 20%;
+  opacity: 30%;
 }
 .movieview-card .btn {
   margin: 0.5rem;
 }
 
+.director-card {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  margin-top: 1rem;
+}
 .director-card img {
   opacity: 50%;
   height: fit-content;
@@ -26,37 +24,87 @@
 .director-info {
   margin-left: 35%;
 }
-.genre-view img {
+.genre-card {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  margin-top: 1rem;
+}
+.genre-card img {
   opacity: 20%;
 }
+.profile-card {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  margin-top: 1rem;
+}
+.profile-card .btn {
+  margin-right: 0.5rem;
+}
+.movie-card {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  color: azure;
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
 
+.card-title {
+  text-align: center;
+}
+
+.movie-card-btns {
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
+  justify-content: space-between;
+}
+
+.movie-overlay {
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.movie-overlay button {
+  color: rgba(255, 0, 68, 0);
+  background-color: rgba(0, 0, 0, 0);
+  margin: none;
+  border: none;
+}
+
+.movie-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  transition: 3ms;
+}
+.movie-overlay:hover button {
+  color: #ff0044;
+}
 .navbar-nav {
   width: 100%;
 }
 
 .navbar {
   padding: 0.5rem 1.25rem !important;
-}
-.movie-card {
-  padding: 15px 0;
+  background-color: #3F3949;
 }
 
-.main-route {
-  margin-top: 6rem;
-}
-
-.card {
-  background-color: #0e0e0e !important;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap");
 .back-btn {
   width: 100%;
+}
+h1, h2 {
+  font-family: "Oswald", sans-serif !important;
+}
+.main-view {
+  margin-top: 4rem;
 }
 .container-fluid {
   padding: 0 !important;
 }
 
 body {
-  background-color: #171617 !important;
+  background: black;
+  background: linear-gradient(0deg, black 0%, #382f42 100%);
+  min-height: 100vh;
+  max-height: 100%;
 }
 /*# sourceMappingURL=index.1d334ea1.css.map */
