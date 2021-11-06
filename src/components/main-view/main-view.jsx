@@ -28,12 +28,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 class MainView extends React.Component {
 	constructor() {
-		super();
+		super(); // keep this part
 		this.state = {
-			user: null,
+			user: null, // replace when implementing redux user
 		};
 	}
-
+	// keep same \/
 	componentDidMount() {
 		let accessToken = localStorage.getItem('token');
 		if (accessToken !== null) {
