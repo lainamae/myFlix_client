@@ -140,7 +140,7 @@ export class ProfileView extends React.Component {
     const FavoriteMovies = favoriteMovies;
     console.log(favoriteMovies);
     return (
-      <Card className="text-white">
+      <Card className="text-white profile-card">
         <Card.Header><h1>Hello {username}!</h1></Card.Header>
         <Card.Header><h2>Account information</h2></Card.Header>
         <Card.Body><p>USERNAME: {username}</p>
