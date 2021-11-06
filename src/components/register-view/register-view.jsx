@@ -13,7 +13,7 @@ export function RegisterView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [birthdate, setBirthdate] = useState('');
+  const [birthday, setBirthday] = useState('');
 
 
 
@@ -23,7 +23,7 @@ export function RegisterView(props) {
       Username: username,
       Password: password,
       Email: email,
-      Birthdate: birthdate
+      Birthday: birthday
     })
       .then(response => {
         const data = response.data;
@@ -62,12 +62,12 @@ export function RegisterView(props) {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label className="birthdate">
-          Birth date:
+        <label className="birthday">
+          Birthday:
           <input
             type="date"
-            value={birthdate}
-            onChange={(e) => setBirthdate(e.target.value)}
+            value={birthday}
+            onChange={(e) => setBirthday(e.target.value)}
           />
         </label>
         <button className="registerBtn" type="submit" onClick={handleSubmit}>
@@ -84,7 +84,7 @@ RegisterView.propTypes = {
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthdate: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired,
     FavoriteMovies: PropTypes.array,
   }),
   onRegister: PropTypes.func,
